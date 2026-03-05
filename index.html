@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>T-Test Calculator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📊 One Sample T-Test Calculator</h1>
+
+<form method="POST">
+
+<label>Sample Data (comma separated)</label>
+<input type="text" name="data" placeholder="102, 98, 101, 105, 97">
+
+<label>Population Mean (H₀)</label>
+<input type="number" step="any" name="mean" value="108">
+
+<label>Alternative Hypothesis</label>
+<select name="hypothesis">
+<option value="two-sided">Two Sided</option>
+<option value="greater">Greater</option>
+<option value="less">Less</option>
+</select>
+
+<button type="submit">Run Test</button>
+
+</form>
+
+{% if t_stat %}
+
+<div class="result">
+
+<h2>Results</h2>
+
+<p><strong>T Statistic:</strong> {{ t_stat }}</p>
+<p><strong>P Value:</strong> {{ p_val }}</p>
+<p><strong>Decision:</strong> {{ result }}</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

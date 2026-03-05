@@ -1,0 +1,4 @@
+flask==3.0.0
+numpy
+scipy
+gunicorn=21.2.0
